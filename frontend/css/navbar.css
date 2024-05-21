@@ -1,0 +1,108 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Segoe UI";
+}
+body {
+    background-image: url("../images/pp3.webp") ;
+    overflow : hidden; 
+}
+li {
+    list-style: none;
+}
+a, a:visited {
+    color: black;
+    text-decoration: none;
+    /* text-transform: uppercase; */
+}
+a:hover {
+    color: white;
+}
+
+/**** NAVBAR ****/
+nav {
+    /* background: skyblue; */
+    display: inline-flex;
+    /* justify-content:space-around; */
+    align-items: center;
+    padding: 10px;
+    font-size: calc(0.5rem + 1vw);
+}
+nav ul {   
+    display: flex;
+    /* justify-content: space-between; */
+   /* margin-left: 300px; */
+   position: absolute;
+   right: 40px;
+   
+}
+nav ul li {
+    margin-left: 30px;
+}
+#logo {
+    /* background-color: black; */
+    display:flex;
+    align-items: center;
+}
+#logo > img {
+    margin: 10px;
+    z-index: 5;
+}
+/* les icones n'apparaisent pas ( croix ou hamburger) */
+#icons {
+    cursor: pointer;
+    display: none;
+}
+/* ************************  petit ecran ************ */
+@media (max-width: 650px){
+    #icons {
+        display: block;
+    }
+ /* ::before crée un pseudo-élément qui sera le premier enfant de l'élément ciblé. 
+Généralement utilisé pour ajouter du contenu esthétique à un élément via la 
+propriété CSS content. */
+    /* code pour ajouter icone hamburger */
+    #icons:before {
+        content: "\2630";
+    }
+    /* si on ajoute la classe active on a la croix x */
+    .active #icons:before {
+        content: "\2715";
+    }
+   #menu {
+    height: 50px;
+   }
+   #contain-bas {
+    position: absolute;
+    top: 50px;
+   }
+    nav {
+       justify-content:space-between;
+    }
+    nav ul {
+        /* Pour faire disparaitre la navbar */
+        position: fixed;
+        left: -100%;
+        /* top: -100%; */
+        flex-direction: column;
+        /* background: skyblue; */
+        width: 100%;
+        text-align: center;
+        transition: 0.25s;
+        font-size: calc(0.4rem + 1vw);
+        margin-top:120px ; 
+    }
+
+    nav li {
+        padding: 3px 0;
+    }
+    nav li:hover {
+        background: rgb(159, 221, 245);
+    }
+    nav.active ul {
+        left: 0;
+    }
+    #contain-bas.down {
+        top: 150px;
+    }
+}
